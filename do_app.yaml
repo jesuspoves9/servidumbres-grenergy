@@ -1,0 +1,28 @@
+name: servidumbres-grenergy
+region: nyc1
+services:
+  - name: backend
+    github:
+      repo: grenergy/servidumbres-grenergy
+      branch: main
+    dockerfile_path: backend/Dockerfile
+    environment_slug: node-js
+    run_command: "node index.js"
+    instance_count: 1
+    instance_size_slug: basic-xxs
+  - name: frontend
+    github:
+      repo: grenergy/servidumbres-grenergy
+      branch: main
+    dockerfile_path: frontend/Dockerfile
+    instance_count: 1
+    instance_size_slug: basic-xxs
+  - name: postgres
+    image: postgres:15
+    envs:
+      - key: POSTGRES_DB
+        value: servidumbres
+      - key: POSTGRES_USER
+        value: postgres
+      - key: POSTGRES_PASSWORD
+        value: postgres
