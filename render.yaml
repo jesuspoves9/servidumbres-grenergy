@@ -2,7 +2,6 @@ services:
   - type: web
     name: servidumbres-grenergy
     env: node
-    region: frankfurt
     branch: main
     rootDir: backend
     buildCommand: npm install && cd ../frontend && npm install && npm run build && cp -r dist ../backend/public || cp -r dist ./public
