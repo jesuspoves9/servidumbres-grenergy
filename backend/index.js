@@ -19,7 +19,6 @@ app.post('/api/predios', (req, res) => {
   res.json(p);
 });
 
-// servir el frontend si existe
 const publicDir = path.join(__dirname, 'public');
 if (fs.existsSync(path.join(publicDir, 'index.html'))) {
   app.use(express.static(publicDir));
